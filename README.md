@@ -17,3 +17,15 @@ docker-compose up
 | GET | /api/users/me | Authorization Token | Get personal details of a user |
 
 The **Authorization Token** must be in the header of the request as the `Authorization` field.
+
+### Register
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"email": "toto101@abc.fr", "password": "toto101", "firstName": "Toto", "lastName": "Tata"}' http://localhost:8080/api/users/register
+```
+
+### Authenticate
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"email": "toto101@abc.fr", "password": "toto101"}' http://localhost:8080/api/users/authenticate
+```
