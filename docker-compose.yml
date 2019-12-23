@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    web:
+        build: ./
+        ports:
+            - "${WEB_PORT}:${WEB_PORT}"
+        links:
+            - "mongodb:${DB_HOST}"
+        volumes:
+            - "./app/src:/app/src"
+            - "./app/bin:/app/bin"
+            - "./.env:/app/.env"
+        container_name: web
+
+    mongodb:
+        image: "mongo:${DB_TAG}"
+        container_name: mongodb
